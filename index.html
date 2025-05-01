@@ -5,40 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prince ❤️ Neelima</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #fffaf0;
+      background-color: #faf8f0;
       font-family: 'Poppins', sans-serif;
       padding-bottom: 50px;
     }
     .header-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
+      font-family: 'Dancing Script', cursive;
+      font-size: 4.5rem;
       text-align: center;
       margin-top: 30px;
       color: #b30059;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     }
     .subtitle {
       text-align: center;
-      font-size: 1.2rem;
-      color: #444;
+      font-size: 1.5rem;
+      color: #555;
       margin-bottom: 40px;
+      font-weight: 300;
     }
     .carousel-item img {
       object-fit: cover;
       height: 400px;
       width: 100%;
+      border-radius: 10px;
     }
     .link-card {
       border: none;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .link-card:hover {
+      transform: translateY(-10px);
     }
     .link-card img {
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
       width: 100%;
       height: 200px;
       object-fit: cover;
@@ -47,9 +56,30 @@
       background-color: #b30059;
       color: white;
       font-weight: 500;
+      padding: 12px 20px;
+      border-radius: 5px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
     }
     .link-card .btn:hover {
       background-color: #99004d;
+    }
+    .map-container iframe {
+      border-radius: 15px;
+    }
+    .card-body h5 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #333;
+    }
+    .card-body a {
+      font-weight: 500;
+    }
+
+    /* Style for event info icons */
+    .event-info-icon {
+      color: #b30059;
+      margin-right: 10px;
     }
   </style>
 </head>
@@ -58,6 +88,28 @@
   <div class="container">
     <div class="header-title">Prince ❤️ Neelima</div>
     <div class="subtitle">Join us as we celebrate our union of love and togetherness</div>
+
+    <!-- Event Info Section -->
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-calendar-day event-info-icon"></i>
+          <span>16th May 2025</span>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-clock event-info-icon"></i>
+          <span>Dinner starts at 6:30 PM</span>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-utensils event-info-icon"></i>
+          <span>St. Matthew's Lutheran West Parish Church</span>
+        </div>
+      </div>
+    </div>
 
     <!-- Carousel -->
     <div id="weddingCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
@@ -132,6 +184,42 @@
     </div>
   </div>
 
+  <!-- Map Section -->
+  <div class="container mt-5">
+    <div class="card link-card">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d676.9856841645703!2d80.44278385764478!3d16.29178044936834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a75383671cbf1%3A0xba409f6d798a4bdb!2sSt.%20Matthew&#39;s%20Lutheran%20West%20Parish%20Church!5e0!3m2!1sen!2sin!4v1746091370299!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="card-body text-center">
+        <h5 class="card-title">Wedding Venue - St. Matthew's Lutheran West Parish Church</h5>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=St.+Matthew%27s+Lutheran+West+Parish+Church" target="_blank" class="btn">Open in Maps</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti JS -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
+  <script>
+    // Confetti on Click
+    document.body.addEventListener('click', function (e) {
+      const x = e.clientX;
+      const y = e.clientY;
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { x: x / window.innerWidth, y: y / window.innerHeight },
+      });
+    });
+
+    // Confetti on page load
+    window.onload = () => {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { x: 0.5, y: 0.2 }
+      });
+    };
+  </script>
+
+  <!-- Bootstrap Bundle JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
